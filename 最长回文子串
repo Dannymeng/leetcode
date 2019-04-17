@@ -1,0 +1,59 @@
+/**
+ * @author danny
+ * @create 2019-04-18 0:20
+ *
+ * 参考文章：https://blog.csdn.net/qq_38905818/article/details/80501632
+ */
+/*
+给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为1000。
+
+示例 1：
+
+输入: "babad"
+输出: "bab"
+注意: "aba"也是一个有效答案。
+示例 2：
+
+输入: "cbbd"
+输出: "bb"
+ */
+public class demo7 {
+    public static void main(String[] args) {
+        String s = "caqabbdbbcc";
+        //caqabbdbbcc
+
+        System.out.println(isHuiWen(s));
+
+    }
+
+    //从中心出发寻找回文，降低复杂度
+    public static String isHuiWen(String s) {
+        int len = s.length();
+        if (len <= 1)
+            return s;
+
+        String longest = "";
+        String str = "";
+        for (int i = 0; i < len - 1; i++) {
+            str = Longest(s, i, i);
+            if (str.length() > longest.length())
+                longest = str;
+            str = Longest(s, i, i + 1);
+            if (str.length() > longest.length())
+                longest = str;
+        }
+        return longest;
+    }
+
+    public static String Longest(String s, int right, int left) {
+        int len = s.length();
+        int p = right;
+        int q = left;
+        while (p >= 0 && q <= len - 1 && s.charAt(p) == s.charAt(q)) {
+            p--;
+            q++;
+        }
+        return s.substring(p + 1, q);
+    }
+
+}
