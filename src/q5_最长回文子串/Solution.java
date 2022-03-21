@@ -18,7 +18,7 @@
 输出: "bb"
  */
  //从中心出发寻找回文，降低复杂度
-class Solution {
+class 最长回文字串 {
     public String longestPalindrome(String s) {
         int len = s.length();
         if (len <= 1)

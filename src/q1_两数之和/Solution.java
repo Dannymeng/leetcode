@@ -1,4 +1,4 @@
-package cn.itcast.Leecode;
+package q1_两数之和;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -13,7 +13,7 @@ import java.util.HashMap;
 因为 nums[0] + nums[1] = 2 + 7 = 9
 所以返回 [0, 1]
  */
-public class demo1 {
+class Solution {
     public static void main(String[] args) {
         int[] nums = new int[]{2, 7, 11, 15};
         int target = 9;

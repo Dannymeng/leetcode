@@ -1,3 +1,5 @@
+package q92_反转链表II;
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -60,5 +62,10 @@ class Solution {
             temp = head;
         }
         return result.next;
+    }
+    class ListNode {
+        int val;
+        Solution.ListNode next;
+        ListNode(int x) { val = x; }
     }
 }
