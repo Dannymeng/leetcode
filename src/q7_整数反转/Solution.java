@@ -21,43 +21,36 @@ package q7_整数反转;
 //输出：0
 
 
+/***
+ * 思路：
+ *
+ * 使用取余的方法，从后往前每一位迭代求，但是需要注意
+ *  不能超出int的取值范围， -2^31 ---- 2^31-1 之间
+ *  时间复杂度：O(log∣x∣)。翻转的次数即 十进制的位数。
+ * 空间复杂度：O(1)。
+ */
 class Solution {
-
-
     public static void main(String[] args) {
-        int x = 1534236469;
+        int x = -123;
         System.out.println(reverse(x));
     }
 
-    public static int reverse(int x) {
-        if (x == 0)
-            return 0;
-        String str = String.valueOf(x);
-        char[] str_ch = str.toCharArray();
-        StringBuilder sb = new StringBuilder();
-        if(str.charAt(0)=='-'){
-            StringBuilder str1 = new StringBuilder(str.substring(1,str.length())).reverse();
-            sb.append("-").append(str1);
-        }else{
-            sb.append(str.substring(0,str.length())).reverse();
-        }
-        try{
-            return Integer.parseInt(sb+"");
-        }catch(Exception e){
-            return 0;
-        }
-    }
 
-    public static int reverse1(int x) {
+    public static int reverse(int x) {
+
         int rev = 0;
         while (x != 0) {
             if (rev < Integer.MIN_VALUE / 10 || rev > Integer.MAX_VALUE / 10) {
                 return 0;
             }
-            int digit = x % 10;
-            x /= 10;
-            rev = rev * 10 + digit;
+            int temp = x % 10;
+            x /=10;
+            rev = rev*10 + temp;
+
         }
         return rev;
+
     }
 }
+
+
